@@ -9,16 +9,17 @@ export default function AddExpenseModal({ show, handleClose, defaultBudgetId }) 
 
     const { addExpense, budgets } = useBudgets()
     
+
     function handleSubmit(e) {
         e.preventDefault()
         addExpense({
-                description: descriptionRef.current.value,
-                amount: parseFloat(amountRef.current.value),
-                budgetId: budgetIdRef.current.value
-            })
+          description: descriptionRef.current.value,
+          amount: parseFloat(amountRef.current.value),
+          budgetId: budgetIdRef.current.value,
+        })
         handleClose()
-    }
-
+      }
+      
     return (
         <Modal show={show} onHide={handleClose}>
             <Form onSubmit={handleSubmit}>
