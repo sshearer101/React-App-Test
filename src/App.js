@@ -1,25 +1,31 @@
+import { Container, Stack, Button } from "react-bootstrap";
+import BudgetCard from "./components/BudgetCard";
+import AddBudgetModal from "./components/AddBudgetModal";
+import { useState } from "react";
 
-// function App() {
-//   return "dfdsfds"
-// }
-
-// export default App;
-import "./App.css";
 function App() {
-return (
-<div className='App'>
-<header className='App-header'>
-<div class='alert alert-primary' role='alert'>
-<p style={{ display: "none" }} className='d-block'>
-Bootstrap is now successfully installed 😃
-</p>
-<p className='d-none'>
-Bootstrap is not installed if you can see this 😢
-</p>
-</div>
-</header>
-</div>
-);
+  const [showAddBudgetModal, setShowAddBudgetModal] = useState(false)
+  return (
+    <>
+      <Container class="my-4">
+        <Stack direction="horizontal" gap="2" classname="mb-4" >
+          <h1 classname="me-auto">Budgets</h1>
+          <Button variant="primary">Add Budget</Button>
+          <Button variant="outline-primary">Add Expense</Button>
+        </Stack>
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+          gap: "1rem",
+          alignItems: "flex-start"
+        }}>
+          <BudgetCard name="Entertainment" amount={200} max={1000}></BudgetCard>
+        </div>
+      </Container>
+      <AddBudgetModal show={showAddBudgetModal} handleClose={() => 
+        setShowAddBudgetModal(false)}/>
+    </>
+  )
 }
 
 
