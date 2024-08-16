@@ -6,7 +6,6 @@ export default function AddExpenseModal({ show, handleClose, defaultBudgetId }) 
     const descriptionRef = useRef()
     const amountRef = useRef()
     const budgetIdRef = useRef()
-
     const { addExpense, budgets } = useBudgets()
     
 
